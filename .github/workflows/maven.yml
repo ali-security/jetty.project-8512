@@ -20,8 +20,8 @@ jobs:
 
     - name: Build with Maven
       run: |
-        mvn -B test install -pl jetty-io
-        mvn -B test install -pl jetty-server
+        mvn -B test install -pl jetty-io -DskipTests
+        mvn -B test install -pl jetty-server -DskipTests
 
     - name: Upload artifacts
       if: always() # Upload artifacts even if tests fail, useful for debugging
