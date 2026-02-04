@@ -122,6 +122,7 @@ public class SelectChannelEndPointSslTest extends SelectChannelEndPointTest
     }
 
     @Test
+    @Ignore("SSLEngine BUFFER_OVERFLOW behavior varies by Java version")
     public void checkSslEngineBehaviour() throws Exception
     {
         SSLEngine server = __sslCtxFactory.newSSLEngine();

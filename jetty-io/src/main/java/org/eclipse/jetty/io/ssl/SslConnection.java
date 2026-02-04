@@ -655,6 +655,13 @@ public class SslConnection extends AbstractConnection
                                         }
                                     }
                                     case BUFFER_UNDERFLOW:
+                                    {
+                                        if (BufferUtil.space(_encryptedInput) == 0)
+                                        {
+                                            BufferUtil.clear(_encryptedInput);
+                                            throw new SSLHandshakeException("Encrypted buffer max length exceeded");
+                                        }
+                                    }
                                     case OK:
                                     {
                                         if (unwrapHandshakeStatus == HandshakeStatus.FINISHED)

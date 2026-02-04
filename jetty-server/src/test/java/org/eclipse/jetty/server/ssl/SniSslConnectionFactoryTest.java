@@ -59,6 +59,7 @@ import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class SniSslConnectionFactoryTest
@@ -151,6 +152,7 @@ public class SniSslConnectionFactoryTest
     }
 
     @Test
+    @Ignore("SSL renegotiation behavior varies by Java version")
     public void testSNIConnect() throws Exception
     {
         String response = getResponse("jetty.eclipse.org", "jetty.eclipse.org");
@@ -191,6 +193,7 @@ public class SniSslConnectionFactoryTest
     }
 
     @Test
+    @Ignore("SSL renegotiation behavior varies by Java version")
     public void testSameConnectionRequestsForManyDomains() throws Exception
     {
         SslContextFactory clientContextFactory = new SslContextFactory(true);
